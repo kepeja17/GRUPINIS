@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Home Section -->
+        <section id="home-section" class="section active">
+            <div class="home-content">
+                <h1>News Management System</h1>
+                <p>A secure platform for managing and viewing news content</p>
+                <div class="button-group">
+                    <button id="login-btn" class="btn btn-primary">Login</button>
+                    <button id="guest-btn" class="btn btn-secondary">View News as Guest</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Section -->
+        <section id="login-section" class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h2 id="login-title">Login</h2>
+                    <p id="login-description">Enter your credentials to access the platform</p>
+                </div>
+                <div class="card-content">
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" required>
+                        </div>
+                        <p id="login-error" class="error-message"></p>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                    <form id="twofa-form" style="display: none;">
+                        <div class="form-group">
+                            <label for="twoFactorCode">Verification Code</label>
+                            <input type="text" id="twoFactorCode" placeholder="6-digit code" maxlength="6" required>
+                        </div>
+                        <p id="twofa-error" class="error-message"></p>
+                        <button type="submit" class="btn btn-primary">Verify</button>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button id="back-to-home" class="btn btn-link">Back to Home</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section (for simple users) -->
+        <section id="news-section" class="section">
+            <div class="news-header">
+                <h1>Latest News</h1>
+                <button id="news-back-btn" class="btn btn-secondary">Back to Home</button>
+            </div>
+            <div id="news-container" class="news-container">
+                <!-- News items will be inserted here by JavaScript -->
+                <div class="loading">Loading news...</div>
+            </div>
+        </section>
+
+        <!-- Admin Dashboard Section -->
+        <section id="admin-section" class="section">
+            <div class="admin-header">
+                <h1>Admin Dashboard</h1>
+                <div class="button-group">
+                    <button id="create-news-btn" class="btn btn-primary">Create News</button>
+                    <button id="admin-logout-btn" class="btn btn-secondary">Logout</button>
+                </div>
+            </div>
+            <div id="admin-news-container" class="news-container">
+                <!-- Admin news items will be inserted here by JavaScript -->
+                <div class="loading">Loading news...</div>
+            </div>
+        </section>
+
+        <!-- Create News Section -->
+        <section id="create-news-section" class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Create News Article</h2>
+                </div>
+                <form id="create-news-form">
+                    <div class="card-content">
+                        <div class="form-group">
+                            <label for="news-title">Title</label>
+                            <input type="text" id="news-title" placeholder="Enter news title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="news-content">Content</label>
+                            <textarea id="news-content" placeholder="Enter news content" rows="8" required></textarea>
+                        </div>
+                        <p id="create-error" class="error-message"></p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" id="create-cancel-btn" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" id="create-submit-btn" class="btn btn-primary">Create News</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Edit News Section -->
+        <section id="edit-news-section" class="section">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Edit News Article</h2>
+                </div>
+                <form id="edit-news-form">
+                    <div class="card-content">
+                        <div class="form-group">
+                            <label for="edit-news-title">Title</label>
+                            <input type="text" id="edit-news-title" placeholder="Enter news title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-news-content">Content</label>
+                            <textarea id="edit-news-content" placeholder="Enter news content" rows="8" required></textarea>
+                        </div>
+                        <p id="edit-error" class="error-message"></p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" id="edit-cancel-btn" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" id="edit-submit-btn" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
